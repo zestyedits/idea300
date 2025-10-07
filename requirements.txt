@@ -1,0 +1,39 @@
+# Core Flask Dependencies
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# OpenAI API
+openai==1.12.0
+
+# Markdown Processing
+markdown==3.5.2
+
+# Python Environment & Utilities
+python-dotenv==1.0.0
+
+# Optional: PDF Generation (uncomment when ready to implement)
+# WeasyPrint==60.2
+# reportlab==4.0.9
+
+# Optional: Database (for production)
+# Flask-SQLAlchemy==3.1.1
+# Flask-Migrate==4.0.5
+# psycopg2-binary==2.9.9  # For PostgreSQL
+
+# Optional: User Authentication (for production)
+# Flask-Login==0.6.3
+# Flask-Bcrypt==1.0.1
+
+# Optional: Form Handling & Validation
+# Flask-WTF==1.2.1
+# WTForms==3.1.2
+
+# Optional: Rate Limiting
+# Flask-Limiter==3.5.0
+
+# Optional: Email Support
+# Flask-Mail==0.9.1
+
+# Development Tools
+python-dotenv==1.0.0
+gunicorn==21.2.0  # For production deployment
