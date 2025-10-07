@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Personalize — Session Architect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header aria-label="Primary">
+        </header>
+    <main class="wrap" style="padding-top: 40px;">
+        <div class="page-header">
+            <h1>Personalize Your Experience</h1>
+            <p class="lead">Select your clinical profession to tailor the AI's perspective and output.</p>
+        </div>
+        <form method="POST" action="/personalize" class="profession-grid">
+            <button type="submit" name="profession" value="Social Worker" class="category-card {% if current_profession == 'Social Worker' %}active{% endif %}">
+                <svg></svg><span>Clinical Social Worker</span><p class="muted">Biopsychosocial & Strengths-Based</p>
+            </button>
+            <button type="submit" name="profession" value="Psychologist" class="category-card {% if current_profession == 'Psychologist' %}active{% endif %}">
+                <svg></svg><span>Psychologist</span><p class="muted">Theoretical & Evidence-Based</p>
+            </button>
+            <button type="submit" name="profession" value="Psychiatrist" class="category-card {% if current_profession == 'Psychiatrist' %}active{% endif %}">
+                <svg></svg><span>Psychiatrist / NP</span><p class="muted">Medical & Diagnostic</p>
+            </button>
+            <button type="submit" name="profession" value="LMFT" class="category-card {% if current_profession == 'LMFT' %}active{% endif %}">
+                <svg></svg><span>Marriage & Family Therapist</span><p class="muted">Systemic & Relational</p>
+            </button>
+            <button type="submit" name="profession" value="Counselor" class="category-card {% if current_profession == 'Counselor' %}active{% endif %}">
+                <svg></svg><span>Professional Counselor</span><p class="muted">Wellness & Developmental</p>
+            </button>
+        </form>
+    </main>
+    <footer class="wrap">
+        </footer>
+</body>
+</html>

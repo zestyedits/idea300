@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Session Architect — AI-Powered Plan Builder for Therapists</title>
+  <meta name="description" content="Save time and reduce burnout with evidence-based session plans generated in seconds. Your clinical co-pilot for CBT, DBT, ACT, and more.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header aria-label="Primary">
+    <div class="wrap nav">
+      <a href="/" class="brand">
+        <div class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.2 5.6L20 9l-5.2 3.6L16 18l-4-2.7L8 18l1.2-5.4L4 9l5.8-1.4L12 2z" fill="white" opacity=".9"/></svg></div>
+        <span>Session Architect</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/faq">FAQ</a>
+        <a href="/login" class="secondary-btn">Log In</a>
+        <a href="/signup" class="cta">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero-cta">
+      <h1>Your Clinical Co-Pilot for Effortless Session Planning</h1>
+      <p class="lead">Stop reinventing the wheel. Generate evidence-based, structured session plans in seconds so you can focus on your clients, not your prep work.</p>
+      <a href="/signup" class="cta large-cta">Get Started for Free</a>
+      <p class="muted" style="margin-top: 8px;">Sign up and get 3 free plan generations.</p>
+    </section>
+    <section class="showcase">
+      <h2>Find Your Perfect Style</h2>
+      <div class="showcase-grid">
+        <div class="card animate-on-scroll">
+          <div class="chip">For Clinical Notes</div>
+          <h3>Professional</h3>
+          <div class="example-output"><strong>Goal:</strong> Client will identify 3 cognitive distortions...<br><strong>Technique:</strong> Socratic Questioning.<br><strong>Rationale:</strong> ... (Beck, 1976).</div>
+        </div>
+        <div class="card animate-on-scroll">
+          <div class="chip">For Quick Prep</div>
+          <h3>Balanced</h3>
+          <div class="example-output"><strong>Psychoeducation:</strong> Explain the "thought-feeling-action" triangle.<br><strong>Clinician Prompt:</strong> "Let's walk through that situation again..."</div>
+        </div>
+        <div class="card animate-on-scroll">
+          <div class="chip">For Client Handouts</div>
+          <h3>Creative</h3>
+          <div class="example-output"><strong>Creative Hook:</strong> "Imagine your anxious thoughts are like clouds passing in the sky. We can't stop the clouds... Today, we'll learn to be a 'thought watcher'."</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <div class="hr"></div>
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <span>© <span id="year"></span> Session Architect</span>
+      <span class="muted">Concise · Evidence-based · Supervision-style</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    animatedElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

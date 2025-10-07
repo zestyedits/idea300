@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login — Session Architect</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header aria-label="Primary">
+    <div class="wrap nav">
+      <a href="/" class="brand">
+        <div class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.2 5.6L20 9l-5.2 3.6L16 18l-4-2.7L8 18l1.2-5.4L4 9l5.8-1.4L12 2z" fill="white" opacity=".9"/></svg></div>
+        <span>Session Architect</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/faq">FAQ</a>
+        <a href="/signup" class="cta">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="auth-layout">
+      <div class="card">
+        <h1>Member Login</h1>
+        <form method="POST" action="/login">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+          <label for="password" style="margin-top:1rem">Password</label>
+          <input type="password" id="password" name="password" required>
+          <button type="submit" class="primary" style="width: 100%; margin-top: 1.5rem;">Log In</button>
+        </form>
+        <div class="hr-text"><span>or</span></div>
+        <button class="google-btn">Sign in with Google</button>
+        <p class="muted" style="text-align: center; margin-top: 16px;">
+          Need an account? <a href="/signup">Sign Up</a>
+        </p>
+      </div>
+      <div class="auth-sidebar">
+        <h3>A Tool Built for Clinicians, by a Clinician.</h3>
+        <ul class="feature-list">
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> <span>Evidence-Based & Ethical</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span>Save Hours of Prep Time</span></li>
+        </ul>
+        <div class="testimonial">
+          <p id="quote-text"></p>
+          <span id="quote-author" class="muted"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="wrap">
+      <div class="hr"></div>
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+        <span>© <span id="year"></span> Session Architect</span>
+        <span class="muted">Concise · Evidence-based · Supervision-style</span>
+      </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const quotes = [
+        { text: "The good life is a process, not a state of being. It is a direction, not a destination.", author: "Carl Rogers" },
+        { text: "Until you make the unconscious conscious, it will direct your life and you will call it fate.", author: "C.G. Jung" }
+    ];
+    const quoteTextEl = document.getElementById('quote-text');
+    const quoteAuthorEl = document.getElementById('quote-author');
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    quoteTextEl.innerText = `"${randomQuote.text}"`;
+    quoteAuthorEl.innerText = `— ${randomQuote.author}`;
+  </script>
+</body>
+</html>

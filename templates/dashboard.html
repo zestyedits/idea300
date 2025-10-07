@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard — Session Architect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header aria-label="Primary">
+        <div class="wrap nav">
+          <a href="/dashboard" class="brand">
+            <div class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.2 5.6L20 9l-5.2 3.6L16 18l-4-2.7L8 18l1.2-5.4L4 9l5.8-1.4L12 2z" fill="white" opacity=".9"/></svg></div>
+            <span>Session Architect</span>
+          </a>
+          <nav class="nav-links">
+            <a href="/generator">Generator</a>
+            <a href="/history">History</a>
+            <a href="/billing">Billing</a>
+            <a href="/faq">FAQ</a>
+            <a href="/logout" class="secondary-btn">Log Out</a>
+          </nav>
+        </div>
+    </header>
+    <main class="wrap" style="padding-top: 40px;">
+        <div class="dashboard-header">
+            <h1>Welcome back, {{ user.name }}</h1>
+            <p class="lead">Here is your account overview.</p>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card main-action">
+                <h2>Ready to Plan?</h2>
+                <p class="muted" style="font-size:1.1rem">You have <strong style="color:var(--brand2)">{{ user.credits }}</strong> plan credits remaining.</p>
+                <a href="/generator" class="cta large-cta" style="margin-top:1rem;">Start Generating</a>
+            </div>
+            <div class="card stat-card">
+                <h3>Selected Lens</h3>
+                <p class="stat-number" style="font-size: 1.5rem; color: var(--brand);">{{ user.profession }}</p>
+            </div>
+            <div class="card nav-card">
+                <a href="/history">
+                    <h3>View History</h3>
+                    <p class="muted">Review your past generations.</p>
+                </a>
+            </div>
+            <div class="card nav-card">
+                <a href="/personalize">
+                    <h3>Change Lens</h3>
+                    <p class="muted">Update your clinical perspective.</p>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer class="wrap">
+        <div class="hr"></div>
+        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+          <span>© <span id="year"></span> Session Architect</span>
+          <span class="muted">Concise · Evidence-based · Supervision-style</span>
+        </div>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
